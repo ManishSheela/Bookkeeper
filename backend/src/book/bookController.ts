@@ -9,7 +9,7 @@ import {
 } from "../utils/cloudinaryFile";
 
 const getAllBooks = async (req: Request, res: Response, next: NextFunction) => {
-	const list = await bookModel.find().populate("author", "name");
+	const list = await bookModel.find().populate("author", "name").sort({ createdAt: -1 });
 	return res.send(list);
 };
 const getSingleBook = async (

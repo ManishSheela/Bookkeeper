@@ -9,6 +9,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
+
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -20,6 +21,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { PATH_NAME } from "@/util/pathName";
+import BreadCrumbs from "@/pages/BreadCrumbs";
 
 export default function DashboardLayout() {
 	const navigate = useNavigate();
@@ -31,7 +33,7 @@ export default function DashboardLayout() {
 		navigate(PATH_NAME.LOGIN, { replace: true });
 	};
 	return (
-		<div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+		<div className="grid min-h-screen w-full h-screen md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
 			<div className="hidden border-r bg-muted/40 md:block">
 				<div className="flex h-full max-h-screen flex-col gap-2">
 					<div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
@@ -121,7 +123,8 @@ export default function DashboardLayout() {
 						</DropdownMenuContent>
 					</DropdownMenu>
 				</header>
-				<main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+				<main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 relative">
+					<BreadCrumbs />
 					<Outlet />
 				</main>
 			</div>
